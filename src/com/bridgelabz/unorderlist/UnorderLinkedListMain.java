@@ -8,22 +8,31 @@ public class UnorderLinkedListMain {
     public static void main(String[] args) throws Exception {
         UnorderLinkedList<String> linkedList1 = new UnorderLinkedList<>();
 
-       linkedList1.push("Welcome");
+       linkedList1.push("Programming");
         linkedList1.push("Java");
-        linkedList1.push("Programming");
+        linkedList1.push("Welcome");
 
         linkedList1.display();
 
-       Node<String> searchNode = linkedList1.search("to");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter word ");
+        String searchElement = sc.next();
 
-       if(searchNode !=null  )
+      linkedList1.search(searchElement);
+
+       if(linkedList1.equals(searchElement)  )
        {
            System.out.println("Element Found");
        }else {
            System.out.println("Element not found");
-           linkedList1.insert(searchNode);
+           boolean isInserted =linkedList1.insertAfter("Welcome" , searchElement);
+
        }
 
+
+
+        System.out.println("******");
+    linkedList1.display();
 
 
 

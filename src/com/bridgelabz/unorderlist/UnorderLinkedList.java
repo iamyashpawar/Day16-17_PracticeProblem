@@ -13,11 +13,11 @@ public class  UnorderLinkedList<T> {
         head = newNode;
     }
 
-    public Node<T> search(String searchElement) {
+    public Node<T> search(T searchData) {
         Node<T> temp = head;
 
         while (temp != null) {
-            if (temp.data.equals(searchElement)) {
+            if (temp.data.equals(searchData)) {
 
                 return temp;
             }
@@ -26,7 +26,7 @@ public class  UnorderLinkedList<T> {
         return  null;
     }
 
-    public void push(String data) {
+    public void push(T data) {
         Node<T> newNode = new Node(data);
         if (head == null) {
             head = newNode;
@@ -50,5 +50,19 @@ public class  UnorderLinkedList<T> {
             temp = temp.next;
         }
         System.out.println();
+    }
+
+    public boolean insertAfter(T searcheData, T insertData) {
+        Node<T> insertNode = new Node<>(insertData);
+        Node<T> searchedNode= search(searcheData);
+         if(searchedNode != null)
+         {
+             Node<T> temp = searchedNode.next;
+             searchedNode.next = insertNode;
+             insertNode.next = temp;
+             return true;
+
+         }
+        return false;
     }
 }
